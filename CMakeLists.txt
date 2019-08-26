@@ -19,8 +19,8 @@ add_library(CORE STATIC ${CORE_SOURCES})
 target_link_libraries(CORE ${DEPENDENCY})
 
 # executable
-add_executable(main_photo main_photo.cpp)
-target_link_libraries(main_photo CORE ${DEPENDENCY})
+add_executable(main_take_image main_take_image.cpp)
+target_link_libraries(main_take_image CORE ${DEPENDENCY})
 
 add_executable(main_calibration main_calibration.cpp)
 target_link_libraries(main_calibration CORE ${DEPENDENCY})

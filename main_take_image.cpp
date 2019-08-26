@@ -5,7 +5,7 @@ using namespace cv;
 
 const string RELATIVE_IMAGE_DIR_PATH = "../data/image";
 
-string build_save_img_path(int index)
+string buildSaveImgPath(int index)
 {
 	string index_str = to_string(index);
 
@@ -45,7 +45,7 @@ int main()
 		}
 		else if (key == 's')
 		{
-			string save_img_path = build_save_img_path(index);
+			string save_img_path = buildSaveImgPath(index);
 			imwrite(save_img_path, img);
 			index++;
 			cout << "Saved: " << save_img_path << endl;
