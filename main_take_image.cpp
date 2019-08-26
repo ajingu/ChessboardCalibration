@@ -24,6 +24,8 @@ int main()
 
 	Mat img;
 	VideoCapture cam(0);
+	cam.set(CAP_PROP_FRAME_WIDTH, 640);
+	cam.set(CAP_PROP_FRAME_HEIGHT, 480);
 
 	if (!cam.isOpened())
 	{

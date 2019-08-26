@@ -1,11 +1,9 @@
 #include <opencv2/opencv.hpp>
 
+using namespace std;
 using namespace cv;
 
-class Calibrator
-{
-private:
+const Size PAT_SIZE(10, 7);
+const float CHESS_SIZE = 23.0; //mm
 
-
-public:
-};
+void calibrate(vector<Mat>& images, Mat& intrinsics, Mat& distCoeffs);

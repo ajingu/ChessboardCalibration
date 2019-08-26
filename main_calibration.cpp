@@ -1,22 +1,28 @@
 #include <opencv2/opencv.hpp>
 
 #include "collect.hpp"
+#include "calibrator.hpp"
+#include "file_writer.hpp"
 
 using namespace std;
 using namespace cv;
 
 const string RELATIVE_CALIB_DIR_PATH = "../data/calibration";
 const string RELATIVE_IMAGE_DIR_PATH = "../data/image";
-const Size PAT_SIZE(10, 7);
 
 int main()
 {
-	Mat intrinsics, dist;
-	vector<Mat> r_vecs, t_vecs, images;
+	Mat intrinsics, distCoeffs;
+	vector<Mat> images;
 
 	collectImages(RELATIVE_IMAGE_DIR_PATH, images);
 
-	waitKey(0);
+	calibrate(images, intrinsics, distCoeffs);
+
+	cout << "intrinsics" << endl << intrinsics << endl;
+	cout << "dist" << endl << distCoeffs << endl;
+
+	write_params(RELATIVE_CALIB_DIR_PATH + "/camera_params.xml", intrinsics, distCoeffs);
 
 	return 0;
 }
