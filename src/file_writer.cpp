@@ -1,6 +1,6 @@
 #include "file_writer.hpp"
 
-void write_params(const string file_path, const Mat& intrinsics, const Mat& distCoeffs)
+void writeParams(const string file_path, const Mat& intrinsics, const Mat& distCoeffs)
 {
 	FileStorage fs(file_path, FileStorage::WRITE);
 

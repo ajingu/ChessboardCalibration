@@ -22,7 +22,7 @@ int main()
 	cout << "intrinsics" << endl << intrinsics << endl;
 	cout << "dist" << endl << distCoeffs << endl;
 
-	write_params(RELATIVE_CALIB_DIR_PATH + "/camera_params.xml", intrinsics, distCoeffs);
+	writeParams(RELATIVE_CALIB_DIR_PATH + "/camera_params.xml", intrinsics, distCoeffs);
 
 	return 0;
 }

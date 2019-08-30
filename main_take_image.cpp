@@ -1,9 +1,13 @@
 #include <opencv2/opencv.hpp>
+#include "camera.hpp"
+#include "webcamera.hpp"
 
 using namespace std;
 using namespace cv;
 
 const string RELATIVE_IMAGE_DIR_PATH = "../data/image";
+const int CAMERA_WIDTH = 640;
+const int CAMERA_HEIGHT = 480;
 
 string buildSaveImgPath(int index)
 {
@@ -20,29 +24,20 @@ string buildSaveImgPath(int index)
 int main()
 {
 	int index = 0;
-
-
 	Mat img;
-	VideoCapture cam(0);
-	cam.set(CAP_PROP_FRAME_WIDTH, 640);
-	cam.set(CAP_PROP_FRAME_HEIGHT, 480);
 
-	if (!cam.isOpened())
-	{
-		cerr << "Camera is not opened." << endl;
-		return -1;
-	}
-
+	WebCamera camera = WebCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
+	camera.start();
 
 	while (true)
 	{
-		cam >> img;
+		camera.getImage(img);
 		imshow("Show", img);
 
 		int key = waitKey(10);
 		if (key == 'q')
 		{
-			cam.release();
+			camera.release();
 			break;
 		}
 		else if (key == 's')
