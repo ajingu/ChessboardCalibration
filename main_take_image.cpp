@@ -5,7 +5,7 @@
 using namespace std;
 using namespace cv;
 
-const string RELATIVE_IMAGE_DIR_PATH = "../data/image";
+const string RELATIVE_IMAGE_DIR_PATH = "../data/image/charuco";
 const int CAMERA_WIDTH = 640;
 const int CAMERA_HEIGHT = 480;
 
