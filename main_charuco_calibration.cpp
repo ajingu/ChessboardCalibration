@@ -18,7 +18,7 @@ int main()
 	vector<Mat> images;
 
 	Ptr<aruco::Dictionary> dictionary = aruco::getPredefinedDictionary(aruco::DICT_6X6_250);
-	Ptr<aruco::CharucoBoard> board = aruco::CharucoBoard::create(5, 7, 0.04, 0.02, dictionary);
+	Ptr<aruco::CharucoBoard> board = aruco::CharucoBoard::create(5, 7, 0.033, 0.02, dictionary);
 
 	collectImages(RELATIVE_IMAGE_DIR_PATH, images);
 
@@ -27,7 +27,7 @@ int main()
 	cout << "intrinsics" << endl << intrinsics << endl;
 	cout << "dist" << endl << distCoeffs << endl;
 
-	writeParams(RELATIVE_CALIB_DIR_PATH + "/camera_params.xml", intrinsics, distCoeffs);
+	writeParams(RELATIVE_CALIB_DIR_PATH + "/camera_params_charuco.xml", intrinsics, distCoeffs);
 
 	return 0;
 }

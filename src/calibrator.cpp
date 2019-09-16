@@ -7,7 +7,7 @@ void calibrate_charuco(vector<Mat>& images, Mat& intrinsics, Mat& distCoeffs, Pt
 	vector<vector<Point2f>> allCharucoCorners;
 	vector<vector<int>> allCharucoIds;
 
-	Ptr<aruco::DetectorParameters> params;
+	Ptr<aruco::DetectorParameters> params = aruco::DetectorParameters::create();
 	params->cornerRefinementMethod = aruco::CORNER_REFINE_NONE;
 
 	for (int image_idx = 0; image_idx < images_length; image_idx++)

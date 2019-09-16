@@ -7,5 +7,6 @@ void collectImages(const string relative_image_dir_path, vector<Mat>& images)
 		Mat img = imread(p.path().string());
 		images.push_back(img);
 		//imshow(p.path().string(), img);
+		//waitKey(1);
 	}
 }
